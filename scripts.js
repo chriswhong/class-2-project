@@ -1,21 +1,29 @@
 $('.card').on('click', function () {
-    var artist = $(this).data('artist')
+    var position = parseInt($(this).data('position'))
+
+    // log the data-position attribute of the card that was clicked.
+    console.log(position)
+
 
     $('#column-right').empty()
 
-    if (artist === 'nirvana') {
-        $('#column-right').css('background-image', 'url("https://people.com/thmb/FM0c0-njIY8t6hF8V4YmbW8b-o0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(749x0:751x2)/nirvana-660-0269944e1daa401199afb0b9b4a8706e.jpg")')
-    }
+    var artistData = [
+      'https://people.com/thmb/FM0c0-njIY8t6hF8V4YmbW8b-o0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(749x0:751x2)/nirvana-660-0269944e1daa401199afb0b9b4a8706e.jpg',
 
-    if (artist === 'blink-182') {
-        $('#column-right').css('background-image', 'url("https://upload.wikimedia.org/wikipedia/en/2/21/Blink-182_-_Dude_Ranch_cover.jpg")')
-    }
+      'https://upload.wikimedia.org/wikipedia/en/2/21/Blink-182_-_Dude_Ranch_cover.jpg',
 
-    if (artist === 'radiohead') {
-        $('#column-right').css('background-image', 'url("https://upload.wikimedia.org/wikipedia/en/b/ba/Radioheadokcomputer.png")')
-    }
+      "https://upload.wikimedia.org/wikipedia/en/b/ba/Radioheadokcomputer.png",
 
-    if (artist === 'the-1975') {
-        $('#column-right').css('background-image', 'url("https://t2.genius.com/unsafe/600x600/https%3A%2F%2Fimages.genius.com%2Fc807961087256ae01fa1005527394ec2.1000x1000x1.jpg")')
-    }
+      "https://t2.genius.com/unsafe/600x600/https%3A%2F%2Fimages.genius.com%2Fc807961087256ae01fa1005527394ec2.1000x1000x1.jpg"
+    ]
+
+    // log the image url to sanity check that we are grabbing the correct one based on the card that was clicked.
+    console.log(artistData[position])
+
+    $('#column-right').css('background-image', `url('${artistData[position]}')`)
+
 })
+
+
+
+
